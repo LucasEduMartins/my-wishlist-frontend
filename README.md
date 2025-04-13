@@ -11,6 +11,7 @@ Projeto criado como MVP da sprint: Arquitetura de Software da pós-graduação e
 - **Integração com API**: Consome dados de uma API backend para persistência.
 
 Para esse projeto, fiz a utilização de uma API externa chamada [FakeStore](https://fakestoreapi.com/).
+
 FakeStore é uma REST API grátis para utilização de informações de uma loja virtual, nesse caso em especifico, a [API de produtos](https://fakestoreapi.com/docs#tag/Products) foi utilizada para compor parte das funcionalidades desse projeto.
 
 rotas utilizadas:
