@@ -150,7 +150,6 @@ export default function WishlistPage() {
   return (
     <div className="container py-4">
       <h1 className="mb-4">Minhas Listas de Desejos</h1>
-
       <div className="d-flex gap-2 mb-4">
         <input
           type="text"
@@ -163,8 +162,7 @@ export default function WishlistPage() {
           Criar Lista
         </button>
       </div>
-
-      <div className="row g-3">
+      <div className="row g-3 mb-4">
         {wishlists.map((list) => (
           <div className="col-md-6" key={list.id}>
             <div
@@ -202,49 +200,92 @@ export default function WishlistPage() {
       </div>
 
       {selectedListId !== null && (
+        <div className="row g-3 ">
+          <h1 className="mb-4">Produtos da Lista</h1>
+          {wishlists.map((list) => {
+            const isActive = selectedListId === list.id;
+            return (
+              isActive &&
+              list?.products?.map((product) => {
+                const inList = isProductInWishlist(list.id, product.product_id);
+                const productData = products.find(
+                  (p) => p.id === product.product_id
+                );
+                if (!productData) return null;
+                return (
+                  inList && (
+                    <div className="col-sm-6 col-md-3" key={productData.id}>
+                      <div className="card h-100 text-center p-2">
+                        <img
+                          src={productData.image}
+                          alt={productData.title}
+                          className="card-img-top"
+                          style={{ height: "150px", objectFit: "contain" }}
+                        />
+                        <div className="card-body">
+                          <p className="card-title small">
+                            {productData.title}
+                          </p>
+                          <button
+                            className={"btn btn-sm w-100 btn-danger"}
+                            onClick={() =>
+                              handleRemoveProductFromWishlist(
+                                selectedListId,
+                                productData.id
+                              )
+                            }
+                          >
+                            Remover
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                );
+              })
+            );
+          })}
+        </div>
+      )}
+
+      {selectedListId !== null && (
         <div className="mt-5">
           <h2 className="mb-3">Produtos</h2>
           <div className="row g-4">
             {products.map((product) => {
               const inList = isProductInWishlist(selectedListId, product.id);
               return (
-                <div className="col-sm-6 col-md-3" key={product.id}>
-                  <div className="card h-100 text-center p-2">
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className="card-img-top"
-                      style={{ height: "150px", objectFit: "contain" }}
-                    />
-                    <div className="card-body">
-                      <p className="card-title small">{product.title}</p>
-                      <button
-                        className={`btn btn-sm w-100 ${
-                          inList ? "btn-danger" : "btn-outline-primary"
-                        }`}
-                        onClick={() =>
-                          inList
-                            ? handleRemoveProductFromWishlist(
-                                selectedListId,
-                                product.id
-                              )
-                            : handleAddProductToWishlist(selectedListId, {
-                                product_id: product.id,
-                                wishlist_id: selectedListId,
-                              })
-                        }
-                      >
-                        {inList ? "Remover" : "Adicionar"}
-                      </button>
+                !inList && (
+                  <div className="col-sm-6 col-md-3" key={product.id}>
+                    <div className="card h-100 text-center p-2">
+                      <img
+                        src={product.image}
+                        alt={product.title}
+                        className="card-img-top"
+                        style={{ height: "150px", objectFit: "contain" }}
+                      />
+                      <div className="card-body">
+                        <p className="card-title small">{product.title}</p>
+                        <button
+                          className={"btn btn-sm w-100 btn-outline-primary"}
+                          onClick={() =>
+                            handleAddProductToWishlist(selectedListId, {
+                              product_id: product.id,
+                              wishlist_id: selectedListId,
+                            })
+                          }
+                        >
+                          Adicionar
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )
               );
             })}
           </div>
         </div>
       )}
-
       {/* Modal Editar Lista */}
       {editListId !== null && (
         <div
@@ -288,7 +329,6 @@ export default function WishlistPage() {
           </div>
         </div>
       )}
-
       {/* Modal Confirmar Desativação */}
       {confirmDeleteId !== null && (
         <div
