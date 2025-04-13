@@ -10,6 +10,13 @@ Projeto criado como MVP da sprint: Arquitetura de Software da pós-graduação e
 - **Produtos**: Adicione ou remova produtos de uma lista de desejos.
 - **Integração com API**: Consome dados de uma API backend para persistência.
 
+Para esse projeto, fiz a utilização de uma API externa chamada [FakeStore](https://fakestoreapi.com/).
+FakeStore é uma REST API grátis para utilização de informações de uma loja virtual, nesse caso em especifico, a [API de produtos](https://fakestoreapi.com/docs#tag/Products) foi utilizada para compor parte das funcionalidades desse projeto.
+
+rotas utilizadas:
+
+- **Listar todos os produtos**: https://fakestoreapi.com/products
+
 ## 🛠️ Tecnologias Utilizadas
 
 - **React**: Biblioteca para construção da interface.
