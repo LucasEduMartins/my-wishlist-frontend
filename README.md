@@ -18,6 +18,12 @@ Projeto criado como MVP da sprint: Arquitetura de Software da pós-graduação e
 - **Axios**: Biblioteca para requisições HTTP.
 - **Vite**: Ferramenta de build para desenvolvimento rápido.
 
+## 🗺️ Arquitetura do Projeto
+
+Abaixo está um fluxograma representando a arquitetura do projeto, incluindo a interação entre o frontend, backend e o banco de dados:
+
+![Arquitetura do Projeto](assets/archtecture_flow.png)
+
 ## 🌐 API Externa
 
 Este projeto utiliza a API externa [FakeStore](https://fakestoreapi.com/), que é uma REST API gratuita para simular informações de uma loja virtual. A API foi utilizada para fornecer dados de produtos e compor parte das funcionalidades do projeto.
@@ -27,12 +33,6 @@ Este projeto utiliza a API externa [FakeStore](https://fakestoreapi.com/), que �
 - **Listar todos os produtos**: [https://fakestoreapi.com/products](https://fakestoreapi.com/products)
 
 A integração com a FakeStore permite que os usuários visualizem e adicionem produtos reais simulados às suas listas de desejos. Para mais informações sobre a API, consulte a [documentação oficial](https://fakestoreapi.com/docs#tag/Products).
-
-## 🗺️ Arquitetura do Projeto
-
-Abaixo está um fluxograma representando a arquitetura do projeto, incluindo a interação entre o frontend, backend e o banco de dados:
-
-![Arquitetura do Projeto](assets/archtecture_flow.png)
 
 ## ▶️ Como Rodar o Projeto
 
