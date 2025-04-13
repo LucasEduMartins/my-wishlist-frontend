@@ -18,6 +18,12 @@ Projeto criado como MVP da sprint: Arquitetura de Software da pós-graduação e
 - **Axios**: Biblioteca para requisições HTTP.
 - **Vite**: Ferramenta de build para desenvolvimento rápido.
 
+## 🗺️ Arquitetura do Projeto
+
+Abaixo está um fluxograma representando a arquitetura do projeto, incluindo a interação entre o frontend, backend e o banco de dados:
+
+![Arquitetura do Projeto](assets/archtecture_flow.png)
+
 ## ▶️ Como Rodar o Projeto
 
 ### Pré-requisitos
